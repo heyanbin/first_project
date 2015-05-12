@@ -7,7 +7,7 @@ my $version='1.0';
 my ($help,$file,$chr_len,$bin_size,$output_file,$stat_file); 
 GetOptions(
 		'help'			=> \$help,
-		'file|f=s'			=> \$file,
+		'file|f=s'		=> \$file,
 		'chr_length|l=i'	=> \$chr_len,
 		'bin_size|b=i'		=> \$bin_size,
 		'output_file|o=s'	=> \$output_file,
@@ -80,8 +80,8 @@ Author: Lv LH(laihui126cn\@126.com)
 Usage:  perl get_uniform_SNPs_on_chr.pl [-h/--help] -f SNP_file -l chr_length -b bin_size -o output_file -s stat_file 
 
 OPTIONS:
-	--help 		  | -h		Display the help message and quit.
-	--SNP_file 	  | -f 		Specify file contain SNPs info.
+	--help 		| -h		Display the help message and quit.
+	--SNP_file 	| -f 		Specify file contain SNPs info.
 	--chr_len     | -l		Specify chromosome length
 	--bin_size    | -b		Specify a bin size to separate SNPs by chromosome position.
 	--output_file | -o		Specify output_file.
@@ -102,14 +102,14 @@ SNP_file can be like:
 
 Output_file:
 #start_pos	end_pos		SNP_info
-	0		40000		1 9634  . A G 0.24232 0.24232
+	0	40000		1 9634  . A G 0.24232 0.24232
 	40000	80000		1 54231 . G T 0.291619 0.291619
 
 Statistics file:
-#start_pos	end_pos count
-0       40000   30
-40000   80000   0            #We should be pay attention to this window.
-80000   120000  74
+#start_pos	end_po	count
+	0       40000   30
+	40000   80000   0            #We should be pay attention to this window(empty), and it may fill with SNP by next script make_more_uniform_on_chr.pl
+	80000   120000  74
 
 =================================================================================
 END
