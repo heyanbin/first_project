@@ -3,10 +3,8 @@ use strict;
 use warnings;
 use diagnostics;
 use Getopt::Long;
-#use List::AllUtils qw(min max);
 my $version='1.0';
-my ($help,$file,$chr_len,$bin_size,$output_file,$stat_file); # NOTE!DON'T give the 0 value, it's wrong!
-#the file contain SNP info on certain chromosome 
+my ($help,$file,$chr_len,$bin_size,$output_file,$stat_file); 
 GetOptions(
 		'help'			=> \$help,
 		'file|f=s'			=> \$file,
@@ -29,10 +27,8 @@ print OUT2 "#start_pos\tend_pos\tcount\n";
 my %pos_hash;
 while(<IN1>){
 	next if/^#/;
-    #chomp(my $tmp1=$_);
-    my @a=split(/\s+/,$_);
-	#my $int=int($a[2]);
-    $pos_hash{$a[1]}=$_;   #Here, make sure the extracted element is the pos of SNP
+    	my @a=split(/\s+/,$_);
+    	$pos_hash{$a[1]}=$_;   #Here, make sure the extracted element is the pos of SNP
 }
 my $start=0;
 my $end=0;
